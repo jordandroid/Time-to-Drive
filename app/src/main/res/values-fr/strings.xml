@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Time to Drive</string>
+    <string name="delete_trajet">Trajet supprimé</string>
+    <string name="action_settings">Paramètres</string>
+    <string name="action_print">Imprimante</string>
+    <string name="next">Suivant</string>
+    <string name="previous">Precédent</string>
+    <string name="title_activity_settings">Paramètres</string>
+    <string name="empty_trajet_name">Le nom du trajet ne doit pas être vide</string>
+    <string name="date_isnotValid">Date non valide</string>
+    <string name="trajet_name_notcorrect">Le nom du trajet ne doit pas contenir de \';\'</string>
+    <string name="distance_isnotvalid">Distance parcourue non valide</string>
+    <string name="trajet_add">Nouveau trajet ajouté</string>
+    <string name="trajet_add_button">Ajouter un trajet</string>
+    <string name="trajet_tv_title">Titre du trajet</string>
+    <string name="trajet_hint_title">Nom du trajet</string>
+    <string name="trajet_tv_date">Date de conduite</string>
+    <string name="trajet_tv_distance">Nombre de kilomètres effectués</string>
+    <string name="trajet_button_add">Ajouter le trajet</string>
+    <string name="print_title">Mes trajets</string>
+    <string name="print_sum">"Total : "</string>
+    <string name="title_settings">Paramètres</string>
+    <string name="updated_obj">Objectif mis à jour</string>
+    <string name="unit_change_miles">Unité utilisé changé à : Miles</string>
+    <string name="unit_change_km">Unité utilisé changé à : Km</string>
+    <string name="darkMode_applied">Mode nuit appliqué</string>
+    <string name="darkMode_deactivate">Mode jour appliqué</string>
+    <string name="sw_darkMode">Mode nuit</string>
+    <string name="unit_tv">Unité</string>
+    <string name="unit_km">Kilomètres</string>
+    <string name="unit_miles">Miles</string>
+    <string name="distObj_tv">Distance objectif</string>
+    <string name="apply">Appliquer</string>
+    <string name="no_trajet">Aucun trajet effectué</string>
+    <string name="title_view">Mes trajets</string>
+    <string name="undo">Annuler</string>
+    <string name="noBackupGenerated">Pas de sauvegarde générée</string>
+
+    <string name="generateID">Générer une  sauvegarde</string>
+    <string name="id_tv_get">Entrer la clée de sauvegarde</string>
+    <string name="getID">Obtenir la sauvegarde </string>
+    <string name="id_tv">Clé de sauvegarde : </string>
+</resources>

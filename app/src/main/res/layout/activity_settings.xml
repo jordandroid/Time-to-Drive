@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context=".SettingsActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay">
+        </com.google.android.material.appbar.AppBarLayout>
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+
+        <TextView
+            android:id="@+id/tv_titlesettings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="32dp"
+            android:text="@string/title_settings"
+            android:textColor="?android:attr/textColorPrimary"
+            android:textAlignment="center"
+            android:textSize="28sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded"
+            android:orientation="vertical"
+            android:layout_marginRight="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginBottom="16dp"
+            android:textColor="?android:attr/textColorPrimary">
+        <Switch
+            android:id="@+id/sw_darkmode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingRight= "40dp"
+            android:textColor="?android:attr/textColorPrimary"
+            android:paddingLeft="40dp"
+            android:text="@string/sw_darkMode"
+            android:focusable="true"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded"
+            android:orientation="vertical"
+            android:layout_marginRight="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginBottom="16dp">
+        <TextView
+            android:id="@+id/tv_unit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center|center_horizontal"
+            android:padding="12dp"
+            android:text="@string/unit_tv"/>
+
+        <RadioGroup
+            android:id="@+id/radio_unit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="40dp"
+            android:paddingRight="40dp"
+            android:focusable="true">
+
+            <RadioButton
+                android:id="@+id/radiobutton_km"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="?android:attr/textColorPrimary"
+                android:text="@string/unit_km" />
+
+            <RadioButton
+                android:id="@+id/radiobutton_mile"
+                android:layout_width="fill_parent"
+                android:textColor="?android:attr/textColorPrimary"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/unit_miles"/>
+
+        </RadioGroup>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded"
+            android:orientation="vertical"
+            android:layout_marginRight="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginBottom="16dp">
+        <TextView
+            android:id="@+id/tv_objectif"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center|center_horizontal"
+            android:padding="12dp"
+            android:text="@string/distObj_tv" />
+
+        <EditText
+            android:id="@+id/edit_objectif"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:ems="10"
+            android:inputType="numberSigned"
+            android:paddingRight="40dp"
+            android:focusable="true"/>
+
+            <Button
+                android:id="@+id/validateChange"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded"
+                android:padding="12dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:text="@string/apply" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded"
+            android:id="@+id/layout_click_ID"
+            android:orientation="vertical"
+            android:layout_marginRight="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginBottom="16dp">
+            <TextView
+                android:id="@+id/tv_id_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center|center_horizontal"
+                android:padding="12dp"
+                android:text="@string/id_tv"/>
+
+            <TextView
+                android:id="@+id/tv_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center|center_horizontal"
+                android:padding="12dp" />
+
+            <Button
+                android:id="@+id/generateID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded"
+                android:padding="12dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:text="@string/generateID" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded"
+            android:orientation="vertical"
+            android:layout_marginRight="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginBottom="16dp">
+            <TextView
+                android:id="@+id/tv_id_get"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center|center_horizontal"
+                android:padding="12dp"
+                android:text="@string/id_tv_get"/>
+
+            <EditText
+                android:id="@+id/edit_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:ems="10"
+                android:inputType="text"
+                android:focusable="true"
+                android:paddingRight="40dp" />
+
+            <Button
+                android:id="@+id/getID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded"
+                android:padding="12dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:text="@string/getID" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</ScrollView>

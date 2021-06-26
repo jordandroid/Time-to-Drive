@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true" android:drawable="@drawable/ripple">
+
+    </item>
+    <item android:state_pressed="false">
+        <shape xmlns:android="http://schemas.android.com/apk/res/android"
+            android:padding = "12dp"
+            android:color="?android:attr/textColorPrimaryInverse">        <shape xmlns:android="http://schemas.android.com/apk/res/android"
+            android:padding = "12dp">
+            <stroke android:width="2dp" android:color="@android:color/transparent"/>
+
+            <padding android:left="0dp" android:top="4dp"
+                android:right="0dp" android:bottom="12dp" />
+            <corners android:radius="12dp" />
+
+            <solid android:color="?android:attr/textColorPrimaryInverse" />
+        </shape>
+            <stroke android:width="2dp" android:color="@color/colorAccent"/>
+            <padding android:left="0dp" android:top="4dp"
+                android:right="0dp" android:bottom="12dp" />
+            <corners android:radius="12dp" />
+            <solid android:color="?android:attr/textColorPrimaryInverse" />
+        </shape>
+    </item>
+
+</selector>

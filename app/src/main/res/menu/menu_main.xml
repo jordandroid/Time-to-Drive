@@ -1,0 +1,20 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_menu"
+    tools:context="com.jordandroid.aac.MainActivity">
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        android:icon="@drawable/ic_settings_24px"
+        app:showAsAction="always"
+        android:tint="?android:attr/textColorPrimary" />
+
+    <item
+        android:id="@+id/action_print"
+        android:orderInCategory="100"
+        android:title="@string/action_print"
+        android:icon="@drawable/ic_print_24px"
+        app:showAsAction="always"/>
+</menu>

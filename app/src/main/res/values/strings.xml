@@ -1,0 +1,53 @@
+<resources>
+    <string name="app_name">Time to Drive</string>
+    <string name="action_settings">Paramètres</string>
+    <string name="action_print">Imprimante</string>
+
+    <!-- Strings for Main_activity -->
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="empty_trajet_name">"Route name cannot be empty"</string>
+    <string name="date_isnotValid">Date is not valid</string>
+    <string name="trajet_name_notcorrect">"Route name cannot contain ';'"</string>
+    <string name="distance_isnotvalid">Distance is not valid</string>
+    <string name="trajet_add">"New route add"</string>
+    <string name="trajet_add_button">"Add a route"</string>
+
+    <string name="trajet_tv_title">"Title of trajet"</string>
+    <string name="trajet_hint_title">"Name of trajet"</string>
+    <string name="trajet_tv_date">"Driving date"</string>
+    <string name="trajet_tv_distance">"Number of kilometers"</string>
+    <string name="trajet_button_add">"Add a trajet"</string>
+
+    <!-- Strings for print -->
+    <string name="print_title">My route</string>
+    <string name="print_sum">Sum : </string>
+
+    <!-- Strings for settings activity-->
+    <string name="title_settings">Settings</string>
+    <string name="updated_obj">"Updated target"</string>
+    <string name="unit_change_miles">"Used unit changed to : Miles"</string>
+    <string name="unit_change_km">"Used unit changed to : Km"</string>
+    <string name="darkMode_applied">"Night mode apply"</string>
+    <string name="darkMode_deactivate">"Day mode apply"</string>
+    <string name="sw_darkMode">"Night mode"</string>
+    <string name="unit_tv">"Unit"</string>
+    <string name="unit_km">"Kilometers"</string>
+    <string name="unit_miles">Miles</string>
+    <string name="distObj_tv">"Updated target"</string>
+    <string name="apply">"Apply"</string>
+    <string name="noBackupGenerated">No backup generated</string>
+    <string name="id_tv">Backup key : </string>
+    <string name="id_tv_get">Enter backup key : </string>
+    <string name="getID">Get data </string>
+    <string name="generateID">Generate new backup</string>
+
+    <!-- Strings for Trajets -->
+    <string name="no_trajet">"No route done"</string>
+
+    <!-- Strings for view activity-->
+    <string name="title_view">My route</string>
+    <string name="undo">"Undo"</string>
+    <string name="delete_trajet">Route deleted</string>
+</resources>

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "473762602004",
+    "firebase_url": "https://time-to-drive-3c674.firebaseio.com",
+    "project_id": "time-to-drive-3c674",
+    "storage_bucket": "time-to-drive-3c674.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:473762602004:android:223455cf015c8cc2d5db01",
+        "android_client_info": {
+          "package_name": "com.jordandroid.aac"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "473762602004-ue0roj9bnqmpscr29k05838hl4lna32s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlN8ddLQKvTMOV8IVsUZEoryFB5jpIQDU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "473762602004-ue0roj9bnqmpscr29k05838hl4lna32s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
