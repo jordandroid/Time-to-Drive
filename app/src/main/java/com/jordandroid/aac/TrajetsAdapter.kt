@@ -1,6 +1,7 @@
-package com.jordandroid.aac;
+package com.jordandroid.aac
 
-import android.annotation.SuppressLint;
+/*** OLD CLASS NOT USED ANYMORE ***/
+
 import android.app.Activity
 import android.content.Context
 import android.view.LayoutInflater
@@ -36,9 +37,9 @@ class TrajetsAdapter (private val activity: Activity, trajetsList: List<Trajet>)
         var distance : TextView? = null
 
         init {
-            this.title = row?.findViewById<TextView>(R.id.tv_title)
-            this.date = row?.findViewById<TextView>(R.id.tv_date)
-            this.distance = row?.findViewById<TextView>(R.id.tv_distance)
+            this.title = row?.findViewById(R.id.tv_title)
+            this.date = row?.findViewById(R.id.tv_date)
+            this.distance = row?.findViewById(R.id.tv_distance)
         }
     }
 
@@ -46,7 +47,7 @@ class TrajetsAdapter (private val activity: Activity, trajetsList: List<Trajet>)
         val view: View?
         val viewHolder: ViewHolder
         if (convertView == null) {
-            val inflater = activity?.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+            val inflater = activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
             view = inflater.inflate(R.layout.custom_list, null)
             viewHolder = ViewHolder(view)
             view?.tag = viewHolder
@@ -57,8 +58,8 @@ class TrajetsAdapter (private val activity: Activity, trajetsList: List<Trajet>)
 
         viewHolder.title?.text = trajetsList[position].trajet
         viewHolder.date?.text = trajetsList[position].date
-        viewHolder.distance?.text = trajetsList[position].distance.toString() + " " + settings.unit
-
+        val tmptext = trajetsList[position].distance.toString() + " " + CustomSettings.unit
+        viewHolder.distance?.text = tmptext
         return view as View
     }
 

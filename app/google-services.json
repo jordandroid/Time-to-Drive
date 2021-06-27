@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "473762602004-vrnvqvm4t8pl4oauru86ocb1i39fkafo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.jordandroid.aac",
+            "certificate_hash": "1523f2a71ffed0bdbddd91ac810c6427c7bc72f7"
+          }
+        },
+        {
           "client_id": "473762602004-ue0roj9bnqmpscr29k05838hl4lna32s.apps.googleusercontent.com",
           "client_type": 3
         }

@@ -38,7 +38,8 @@
     <string name="noBackupGenerated">Pas de sauvegarde générée</string>
 
     <string name="generateID">Générer une  sauvegarde</string>
-    <string name="id_tv_get">Entrer la clée de sauvegarde</string>
+    <string name="id_tv_get">Entrer la clé de sauvegarde</string>
     <string name="getID">Obtenir la sauvegarde </string>
+    <string name="getID_FAILED">Clé non valide</string>
     <string name="id_tv">Clé de sauvegarde : </string>
 </resources>

@@ -103,8 +103,6 @@
             android:divider="@android:color/transparent"
             android:dividerHeight="12dp"
             android:paddingTop="4dp"
-            android:layout_marginHorizontal="0dp"
-            android:paddingHorizontal="20dp"
             android:paddingBottom="0dp" />
 
     </LinearLayout>

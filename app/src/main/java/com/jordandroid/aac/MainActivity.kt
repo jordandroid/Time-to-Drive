@@ -7,7 +7,6 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.print.PrintAttributes
-import android.print.PrintDocumentAdapter
 import android.print.PrintManager
 import android.util.Log
 import android.view.Menu
@@ -18,10 +17,7 @@ import android.webkit.WebViewClient
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
-import java.io.IOException
-import java.io.OutputStreamWriter
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -33,28 +29,28 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         setContentView(R.layout.activity_main)
         setSupportActionBar(findViewById(R.id.toolbar))
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true);
-        supportActionBar!!.setDisplayShowHomeEnabled(true);
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.setDisplayShowHomeEnabled(true)
 
-        val sharedPref: SharedPreferences = getSharedPreferences(settings.PREF_NAME, settings.PRIVATE_MODE)
-        settings.getValues(sharedPref)
-        var isNightModeEnabled = sharedPref.getBoolean(settings.DARK_MODE, true);
+        val sharedPref: SharedPreferences = getSharedPreferences(CustomSettings.PREF_NAME, CustomSettings.PRIVATE_MODE)
+        CustomSettings.getValues(sharedPref)
+        val isNightModeEnabled = sharedPref.getBoolean(CustomSettings.DARK_MODE, true)
 
         if (isNightModeEnabled) {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         } else {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         }
 
         super.onCreate(savedInstanceState)
 
         fun onClickAddTrajet(){
-            var newTrajet : Trajet = Trajet()
+            val newTrajet = Trajet()
 
             newTrajet.trajet = trajet_title.text.toString()
             newTrajet.date = datePicker.text.toString()
 
-            if (newTrajet.trajet.toString().trim() == ""){
+            if (newTrajet.trajet.trim() == ""){
                 Toast.makeText(this, getString(R.string.empty_trajet_name), Toast.LENGTH_LONG).show()
             }
             else if (!validate(newTrajet.date)){
@@ -82,21 +78,21 @@ class MainActivity : AppCompatActivity() {
         val myCalendar: Calendar = Calendar.getInstance()
 
         fun updateLabel() {
-            var myFormat = "dd/MM/YYYY"; //In which you need put here
-            var sdf = SimpleDateFormat(myFormat, Locale.FRANCE);
+            val myFormat = "dd/MM/YYYY" //In which you need put here
+            val sdf = SimpleDateFormat(myFormat, Locale.FRANCE)
 
-            datePicker.setText(sdf.format(myCalendar.getTime()));
+            datePicker.setText(sdf.format(myCalendar.time))
         }
 
         val date =
-            DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth -> // TODO Auto-generated method stub
+            DatePickerDialog.OnDateSetListener { _, year, monthOfYear, dayOfMonth -> // TODO Auto-generated method stub
                 myCalendar.set(Calendar.YEAR, year)
                 myCalendar.set(Calendar.MONTH, monthOfYear)
                 myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
                 updateLabel()
             }
 
-        datePicker.setOnClickListener { v -> DatePickerDialog(this@MainActivity, date, myCalendar.get(Calendar.YEAR), myCalendar.get(Calendar.MONTH), myCalendar.get(Calendar.DAY_OF_MONTH)).show() }
+        datePicker.setOnClickListener { DatePickerDialog(this@MainActivity, date, myCalendar.get(Calendar.YEAR), myCalendar.get(Calendar.MONTH), myCalendar.get(Calendar.DAY_OF_MONTH)).show() }
     }
 
     /**
@@ -106,10 +102,10 @@ class MainActivity : AppCompatActivity() {
      */
     open fun validate(date: String): Boolean {
         try {
-            var list = date.split("/")
-            var day = list[0].toInt()
-            var month = list[1].toInt()
-            var year = list[2].toInt()
+            val list = date.split("/")
+            val day = list[0].toInt()
+            val month = list[1].toInt()
+            list[2].toInt()
 
              return ((day >0) and (day<= 31) and (month >0) and (month <= 12))
         }
@@ -123,10 +119,10 @@ class MainActivity : AppCompatActivity() {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menu_main, menu)
 
-        getSupportActionBar()!!.setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar()!!.setDisplayShowHomeEnabled(true);
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.setDisplayShowHomeEnabled(true)
 
-        var actionSettings = menu.findItem(R.id.action_settings)
+        val actionSettings = menu.findItem(R.id.action_settings)
         actionSettings.setOnMenuItemClickListener{
             val intent = Intent(this, SettingsActivity::class.java)
             startActivity(intent)
@@ -137,7 +133,7 @@ class MainActivity : AppCompatActivity() {
 
         fun createWebPrintJob(webView: WebView) {
             // Get a PrintManager instance
-            (this!!.getSystemService(Context.PRINT_SERVICE) as? PrintManager)?.let { printManager ->
+            (this.getSystemService(Context.PRINT_SERVICE) as? PrintManager)?.let { printManager ->
 
                 val jobName = "${getString(R.string.app_name)} Document"
 
@@ -153,8 +149,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
         fun doWebViewPrint() {
-            var trajets = Trajets()
-            trajets = dbManager.loadTrajets()
+            val trajets: Trajets = dbManager.loadTrajets()
             // Create a WebView object specifically for printing
             val webView = WebView(this)
             webView.webViewClient = object : WebViewClient() {
@@ -177,7 +172,7 @@ class MainActivity : AppCompatActivity() {
             mWebView = webView
         }
 
-        var actionPrint = menu.findItem(R.id.action_print)
+        val actionPrint = menu.findItem(R.id.action_print)
         actionPrint.setOnMenuItemClickListener{
                 // Get a PrintManager instance
                 doWebViewPrint()
@@ -209,14 +204,14 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
 
-        val sharedPref: SharedPreferences = getSharedPreferences(settings.PREF_NAME, settings.PRIVATE_MODE)
-        settings.getValues(sharedPref)
-        var isNightModeEnabled = sharedPref.getBoolean(settings.DARK_MODE, true);
+        val sharedPref: SharedPreferences = getSharedPreferences(CustomSettings.PREF_NAME, CustomSettings.PRIVATE_MODE)
+        CustomSettings.getValues(sharedPref)
+        val isNightModeEnabled = sharedPref.getBoolean(CustomSettings.DARK_MODE, true)
 
         if (isNightModeEnabled) {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         } else {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         }
     }
 }

@@ -4,7 +4,6 @@ import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import android.graphics.Color
 import android.os.Bundle
 import android.print.PrintAttributes
 import android.print.PrintManager
@@ -14,7 +13,6 @@ import android.view.View
 import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -37,14 +35,14 @@ class ViewActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        val sharedPref: SharedPreferences = getSharedPreferences(settings.PREF_NAME, settings.PRIVATE_MODE)
-        settings.getValues(sharedPref)
-        var isNightModeEnabled = sharedPref.getBoolean(settings.DARK_MODE, true);
+        val sharedPref: SharedPreferences = getSharedPreferences(CustomSettings.PREF_NAME, CustomSettings.PRIVATE_MODE)
+        CustomSettings.getValues(sharedPref)
+        val isNightModeEnabled = sharedPref.getBoolean(CustomSettings.DARK_MODE, true)
 
         if (isNightModeEnabled) {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         } else {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         }
 
         super.onCreate(savedInstanceState)
@@ -52,12 +50,12 @@ class ViewActivity : AppCompatActivity() {
         setSupportActionBar(findViewById(R.id.toolbar))
 
 
-        settings.getValues(sharedPref)
+        CustomSettings.getValues(sharedPref)
         constraintLayout = findViewById(R.id.constraintLayout)
         linearLayoutManager = LinearLayoutManager(this)
         rv_trajets.layoutManager = linearLayoutManager
 
-        recyclerView = findViewById(R.id.rv_trajets) as RecyclerView
+        recyclerView = findViewById(R.id.rv_trajets)
 
         add_trajet.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
@@ -72,14 +70,14 @@ class ViewActivity : AppCompatActivity() {
     override fun onResume() {  // After a pause OR at startup
         super.onResume()
 
-        val sharedPref: SharedPreferences = getSharedPreferences(settings.PREF_NAME, settings.PRIVATE_MODE)
-        settings.getValues(sharedPref)
-        var isNightModeEnabled = sharedPref.getBoolean(settings.DARK_MODE, true);
+        val sharedPref: SharedPreferences = getSharedPreferences(CustomSettings.PREF_NAME, CustomSettings.PRIVATE_MODE)
+        CustomSettings.getValues(sharedPref)
+        val isNightModeEnabled = sharedPref.getBoolean(CustomSettings.DARK_MODE, true)
 
         if (isNightModeEnabled) {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         } else {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         }
         //Refresh your stuff here
         refreshView()
@@ -89,7 +87,7 @@ class ViewActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menu_main, menu)
-        var actionSettings = menu.findItem(R.id.action_settings)
+        val actionSettings = menu.findItem(R.id.action_settings)
         actionSettings.setOnMenuItemClickListener{
             val intent = Intent(this, SettingsActivity::class.java)
             startActivity(intent)
@@ -100,7 +98,7 @@ class ViewActivity : AppCompatActivity() {
 
         fun createWebPrintJob(webView: WebView) {
             // Get a PrintManager instance
-            (this!!.getSystemService(Context.PRINT_SERVICE) as? PrintManager)?.let { printManager ->
+            (this.getSystemService(Context.PRINT_SERVICE) as? PrintManager)?.let { printManager ->
 
                 val jobName = "${getString(R.string.app_name)} Document"
 
@@ -139,7 +137,7 @@ class ViewActivity : AppCompatActivity() {
             mWebView = webView
         }
 
-        var actionPrint = menu.findItem(R.id.action_print)
+        val actionPrint = menu.findItem(R.id.action_print)
         actionPrint.setOnMenuItemClickListener{
             // Get a PrintManager instance
             doWebViewPrint()
@@ -182,18 +180,18 @@ class ViewActivity : AppCompatActivity() {
     fun refreshView(){
         trajets = dbManager.loadTrajets()
         adapter = TrajetsRecyclerViewAdapter(trajets.listOfTrajets)
-        (recyclerView as RecyclerView).adapter = adapter
+        recyclerView.adapter = adapter
 
-        var distMadeInt : Int =  0
+        var distMadeInt =  0
         trajets.listOfTrajets.forEach { x ->distMadeInt += x.distance.toInt() }
 
-        tv_distanceMade.setText("$distMadeInt ${settings.unit}")
+        tv_distanceMade.text = "$distMadeInt ${CustomSettings.unit}"
 
-        var objectifInt : Int = settings.objectif
-        tv_objectif.setText("$objectifInt ${settings.unit}")
+        val objectifInt : Int = CustomSettings.objectif
+        tv_objectif.text = "$objectifInt ${CustomSettings.unit}"
 
-        var progress : Int = (distMadeInt*100/objectifInt)
-        progressBarId.setMax(100);
+        val progress : Int = (distMadeInt*100/objectifInt)
+        progressBarId.max = 100
         progressBarId.setProgress(progress, false)
 
     }
