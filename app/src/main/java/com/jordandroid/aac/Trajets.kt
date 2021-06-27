@@ -108,7 +108,7 @@ class Trajets{
         // Write a message to the database
        /* lateinit var database: DatabaseReference
 
-        database = Firebase.database.getReferenceFromUrl("https://time-to-drive-3c674.firebaseio.com/")
+        database = Firebase.database.getReferenceFromUrl("LINK FIREBASE")
 
         database.child("StockedJSON").child(randomInt.toString())*/
     }
@@ -154,6 +154,5 @@ class Trajets{
                     println("END :  Fail " + it.toString())
                 }
         }
-        /**database = Firebase.database.getReference("https://time-to-drive-3c674.firebaseio.com/")**/
     }
 }

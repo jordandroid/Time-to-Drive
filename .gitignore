@@ -9,6 +9,12 @@
 /.idea/assetWizardSettings.xml
 .DS_Store
 /build
+/.idea
+/app/google-services.json
+/app/debug
+/app/release
+/app/src/androidTest
+/app/src/test
 /captures
 .externalNativeBuild
 .cxx
